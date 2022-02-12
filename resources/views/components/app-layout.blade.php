@@ -226,6 +226,7 @@
     <script src="{{ asset('shop/js/google-map.js') }}"></script>
     <script src="{{ asset('shop/js/main.js') }}"></script>
 
+    {{ $scripts ?? '' }}
 </body>
 
 </html>

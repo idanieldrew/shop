@@ -9,4 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 // shop page
-Route::get('/shops', [ShopController::class, 'index'])->name('index');
+Route::get('/shops', [ShopController::class, 'index'])->name('shop.index');
+
+// show page
+Route::get('/shops/test', [ShopController::class, 'show'])->name('shop.show');
