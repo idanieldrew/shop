@@ -12,4 +12,4 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/shops', [ShopController::class, 'index'])->name('shop.index');
 
 // show page
-Route::get('/shops/test', [ShopController::class, 'show'])->name('shop.show');
+Route::get('shops/{product}', [ShopController::class, 'show'])->name('shop.show');
