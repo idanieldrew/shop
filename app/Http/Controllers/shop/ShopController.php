@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\shop;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -14,7 +16,18 @@ class ShopController extends Controller
      */
     public function index()
     {
-        return view('shopping.shop');
+        if (request()->category) {
+            $products = Product::with('categories')->whereHas('categories', function ($query) {
+                $query->where('slug', request()->category);
+            });
+            $categories = Category::all();
+        } else {
+            $products = Product::take(3);
+            $categories = Category::all();
+        }
+        $products = $products->paginate(8);
+
+        return view('shopping.shop', compact('products', 'categories'));
     }
 
     /**

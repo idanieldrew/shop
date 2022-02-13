@@ -9,3 +9,8 @@ function make_slug($string, $separator = '-')
 
     return $string;
 }
+
+function setActiveCategories ($category , $output = 'active')
+{
+    return request()->category == $category ? $output : '';
+}
