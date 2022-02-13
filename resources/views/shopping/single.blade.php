@@ -61,7 +61,7 @@
                             alt="Colorlib Template"></a>
                 </div>
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                    <h3>فلفل دلمه ای</h3>
+                    <h3>{{ $product->name }}</h3>
                     <div class="rating d-flex">
                         <p class="text-left mr-4">
                             <a href="#" class="mr-2">5.0</a>
@@ -71,23 +71,9 @@
                             <a href="#"><span class="ion-ios-star-outline"></span></a>
                             <a href="#"><span class="ion-ios-star-outline"></span></a>
                         </p>
-                        <p class="text-left mr-4">
-                            <a href="#" class="mr-2" style="color: #000;">100 <span
-                                    style="color: #bbb;">رای</span></a>
-                        </p>
-                        <p class="text-left">
-                            <a href="#" class="mr-2" style="color: #000;">500 <span
-                                    style="color: #bbb;">فروخته
-                                    شده</span></a>
-                        </p>
                     </div>
-                    <p class="price"><span>12.000 تومان</span></p>
-                    <p>فلفل دلمه ای نیز فلفل شیرین و یا کپسایسیم هستند و در رنگ های مختلف مثل زرد، قرمز، سبز، بنفش و
-                        نارنجی
-                        موجود هستند. این سبزیجات ، بیش از 900 سال پیش در جنوب و آمریکای مرکزی پرورش داده شدند و نام فلفل
-                        را
-                        از استعمارگران اروپایی آمریکای شمالی دریافت کردند.
-
+                    <p class="price"><span>{{ $product->price }} تومان</span></p>
+                    <p>{{ $product->description }}
                     </p>
                     <div class="row mt-4">
                         <div class="col-md-6">
@@ -123,7 +109,12 @@
                             <p style="color: #000;">موجودی 600 کیلوگرم</p>
                         </div>
                     </div>
-                    <p><a href="cart.html" class="btn btn-black py-3 px-5">اضافه به سبد خرید </a></p>
+                    <form action="{{ route('cart.store', $product) }}" method="POST">
+                        @csrf
+                        <button style="background-color: rgb(255, 60, 0)" type="submit">
+                            اضافه به سبد خرید
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -141,128 +132,35 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid"
-                                src="{{ asset('shop/pics/product-1.jpg') }}" alt="Colorlib Template">
-                            <span class="status">30%</span>
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 pb-4 px-3 text-center">
-                            <h3><a href="#">فلفل دلمه ای</a></h3>
-                            <div class="d-flex">
-                                <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc">120.00 تومان</span><span
-                                            class="price-sale">80.00 تومان</span></p>
+                @foreach ($products as $pro)
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="product">
+                            <a href="{{ route('shop.show', $pro->slug) }}" class="img-prod"><img
+                                    class="img-fluid" src="{{ asset('shop/pics/product-1.jpg') }}"
+                                    alt="Colorlib Template">
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="text py-3 pb-4 px-3 text-center">
+                                <h3><a href="#">{{ $pro->name }}</a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price"><span class="price-sale">{{ $pro->price }}
+                                                تومان</span></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="bottom-area d-flex px-3">
-                                <div class="m-auto d-flex">
-                                    <a href="#"
-                                        class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                        <span><i class="ion-ios-menu"></i></span>
-                                    </a>
-                                    <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                        <span><i class="ion-ios-cart"></i></span>
-                                    </a>
-                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                        <span><i class="ion-ios-heart"></i></span>
-                                    </a>
+                                <div class="bottom-area d-flex px-3">
+                                    <div class="m-auto d-flex">
+
+                                        <a href="{{ route('shop.show', $pro->slug) }}"
+                                            class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                            <span><i class="ion-ios-cart"></i></span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid"
-                                src="{{ asset('shop/pics/product-2.jpg') }}" alt="Colorlib Template">
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 pb-4 px-3 text-center">
-                            <h3><a href="#">توت فرنگی</a></h3>
-                            <div class="d-flex">
-                                <div class="pricing">
-                                    <p class="price"><span>120.00 تومان</span></p>
-                                </div>
-                            </div>
-                            <div class="bottom-area d-flex px-3">
-                                <div class="m-auto d-flex">
-                                    <a href="#"
-                                        class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                        <span><i class="ion-ios-menu"></i></span>
-                                    </a>
-                                    <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                        <span><i class="ion-ios-cart"></i></span>
-                                    </a>
-                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                        <span><i class="ion-ios-heart"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid"
-                                src="{{ asset('shop/pics/product-3.jpg') }}" alt="Colorlib Template">
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 pb-4 px-3 text-center">
-                            <h3><a href="#">لوبیا سبز</a></h3>
-                            <div class="d-flex">
-                                <div class="pricing">
-                                    <p class="price"><span>120.00 تومان</span></p>
-                                </div>
-                            </div>
-                            <div class="bottom-area d-flex px-3">
-                                <div class="m-auto d-flex">
-                                    <a href="#"
-                                        class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                        <span><i class="ion-ios-menu"></i></span>
-                                    </a>
-                                    <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                        <span><i class="ion-ios-cart"></i></span>
-                                    </a>
-                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                        <span><i class="ion-ios-heart"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid"
-                                src="{{ asset('shop/pics/product-4.jpg') }}" alt="Colorlib Template">
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 pb-4 px-3 text-center">
-                            <h3><a href="#">کلم بنفش</a></h3>
-                            <div class="d-flex">
-                                <div class="pricing">
-                                    <p class="price"><span>120.00 تومان</span></p>
-                                </div>
-                            </div>
-                            <div class="bottom-area d-flex px-3">
-                                <div class="m-auto d-flex">
-                                    <a href="#"
-                                        class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                        <span><i class="ion-ios-menu"></i></span>
-                                    </a>
-                                    <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                        <span><i class="ion-ios-cart"></i></span>
-                                    </a>
-                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                        <span><i class="ion-ios-heart"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

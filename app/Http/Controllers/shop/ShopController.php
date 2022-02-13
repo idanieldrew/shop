@@ -59,7 +59,11 @@ class ShopController extends Controller
      */
     public function show($product)
     {
-        return view('shopping.single', compact('product'));
+        $product = Product::where('slug', $product)->firstOrFail();
+
+        $products = Product::where('slug', '!=', $product)->inRandomOrder()->take(4)->get();
+
+        return view('shopping.single', compact('product', 'products'));
     }
 
     /**
