@@ -186,12 +186,6 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        All rights reserved | This template is made by <a href="https://colorlib.com/"
-                            target="_blank">colorlib</a></br>
-                        فارسی و راست چین شده &copy توسط حمید معلمی <i class="icon-heart text-danger"
-                            aria-hidden="true"></i>
-                        از اعضای تیم <a href="https://webrubik.com/" target="_blank"> وب روبیک</a>
-                        <!-- Link back to webrubik can't be removed.  -->
                     </p>
                 </div>
             </div>

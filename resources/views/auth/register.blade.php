@@ -4,17 +4,17 @@
     </x-slot>
     <div class="limiter">
         <div class="container-login100">
+            @if ($errors)
+                <div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="wrap-login100">
 
-                @if ($errors)
-                    <div>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <!-- input form -->
                 <form class="login100-form validate-form" action="{{ route('doRegister') }}" method="POST">
                     <span class="login100-form-title">ثبت نام</span>
