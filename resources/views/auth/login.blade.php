@@ -55,7 +55,7 @@
 
                     <!-- register-->
                     <div class="text-center p-t-136">
-                        <a class="txt2" href="#">
+                        <a class="txt2" href="{{ route('register') }}">
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                             هنوز ثبت نام نکرده اید ؟
                         </a>

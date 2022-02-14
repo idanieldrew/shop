@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +19,8 @@ class RegisterController extends Controller
      */
     public function create()
     {
+        session()->put('backUrl', url()->previous());
+
         return view('auth.register');
     }
 
@@ -49,6 +50,11 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        $this->redirectTo();
+    }
+
+    public function redirectTo()
+    {
+        return str_replace(url('/'), '', session()->get('backUrl'));
     }
 }

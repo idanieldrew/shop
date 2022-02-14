@@ -17,6 +17,8 @@ class LoginController extends Controller
      */
     public function create()
     {
+        session()->put('backUrl', url()->previous());
+        
         return view('auth.login');
     }
 
@@ -28,11 +30,13 @@ class LoginController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $this->showLoginForm();
+
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $this->redirectTo();
     }
 
     /**
@@ -50,5 +54,17 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function showLoginForm()
+    {
+        session()->put('backUrl', url()->previous());
+
+        return view('auth.login');
+    }
+
+    public function redirectTo()
+    {
+        return str_replace(url('/'), '', session()->get('backUrl'));
     }
 }
