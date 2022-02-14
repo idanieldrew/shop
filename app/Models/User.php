@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function cart()
     {
-        return $this->hasOne(Cart::class, 'userId', 'phone');
+        return $this->hasOne(Cart::class);
     }
 }

@@ -17,3 +17,6 @@ Route::get('shops/{product}', [ShopController::class, 'show'])->name('shop.show'
 
 // store cart
 Route::post('cart/{product}', [CartController::class, 'store'])->name('cart.store');
+
+// store cart
+Route::get('cart', [CartController::class, 'index'])->name('cart.index');

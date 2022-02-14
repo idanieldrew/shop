@@ -9,14 +9,19 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
+      public function index()
+      {
+            dd('okk');
+      }
+
       public function store(Product $product)
       {
-            $cart = Cart::where('user_id', auth()->user()->id)->get();
-            $cartItem = CartItem::where('product_id', $product->id)->get();
+            $cart = Cart::where('user_id', auth()->user()->id)->first();
+            $cartItem = CartItem::where('product_id', $product->id)->first();
 
             if ($cart) {
                   if ($cartItem) {
-                        return view('cart.index')->with('اضافه', 'قبلا اضافه کرده اید');
+                        return view('shopping.cart')->with('danger', 'قبلا اضافه کرده اید');
                   } else {
                         $cart->cartItems()->create([
                               'product_id' => $product->id,
@@ -24,6 +29,7 @@ class CartController extends Controller
                               'price' => $price = $product->price,
                               'total' => $quantity * $price,
                         ]);
+                        return view('shopping.cart')->with('success', ' اضافه شد');
                   }
             } else {
                   $newCart = auth()->user()->cart()->create([
@@ -36,6 +42,8 @@ class CartController extends Controller
                         'price' => $price = $product->price,
                         'total' => $quantity * $price,
                   ]);
+
+                  return view('shopping.cart')->with('success', ' اضافه شد');
             }
       }
 }
