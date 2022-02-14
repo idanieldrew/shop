@@ -6,10 +6,19 @@
         <div class="container-login100">
             <div class="wrap-login100">
 
+                @if ($errors)
+                    <div>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- input form -->
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" action="{{ route('doRegister') }}" method="POST">
                     <span class="login100-form-title">ثبت نام</span>
-
+                    @csrf
                     <!-- enter name-->
                     <div class="wrap-input100 validate-input" data-validate="لطفا نام خود را وارد کنید!">
                         <input class="input100" type="text" name="name" placeholder="نام">
@@ -53,7 +62,7 @@
 
                     <!-- login button-->
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">ورود</button>
+                        <button type="submit" class="login100-form-btn">ورود</button>
                     </div>
                     <!-- / login button -->
 
