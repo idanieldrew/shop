@@ -50,11 +50,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        $this->redirectTo();
-    }
-
-    public function redirectTo()
-    {
-        return str_replace(url('/'), '', session()->get('backUrl'));
+        return redirect()->route('cart.shop');
     }
 }

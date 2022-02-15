@@ -18,7 +18,7 @@ class LoginController extends Controller
     public function create()
     {
         session()->put('backUrl', url()->previous());
-        
+
         return view('auth.login');
     }
 
@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        $this->redirectTo();
+        return redirect()->route('cart.shop');
     }
 
     /**

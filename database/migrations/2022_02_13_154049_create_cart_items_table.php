@@ -18,7 +18,7 @@ class CreateCartItemsTable extends Migration
             $table->foreignId('product_id')->constrained();
             $table->foreignId('cart_id')->constrained();
             $table->smallInteger('quantity')->default(1);
-            $table->float('price')->unique();
+            $table->float('price');
             $table->float('total');
             $table->boolean('active')->default(false);
             $table->timestamps();
