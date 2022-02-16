@@ -20,3 +20,5 @@ Route::middleware('auth')->post('cart/{product}', [CartController::class, 'store
 
 // store cart
 Route::middleware('auth')->get('cart', [CartController::class, 'index'])->name('cart.index');
+
+Route::middleware('auth')->post('cart-quantity/{cartItem}', [CartController::class, 'quantity'])->name('cart.quantity');

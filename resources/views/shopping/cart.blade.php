@@ -7,35 +7,36 @@
             $(document).ready(function() {
 
                 var quantitiy = 0;
-                $('.quantity-right-plus').click(function(e) {
+                $('.inc').click(function(e) {
 
                     // Stop acting like a button
                     e.preventDefault();
                     // Get the field name
-                    var quantity = parseInt($('#quantity').val());
+                    var quantity = parseInt($('#qu').val());
 
                     // If is not undefined
 
-                    $('#quantity').val(quantity + 1);
+                    $('#qu').val(quantity + 1);
 
 
                     // Increment
 
                 });
 
-                $('.quantity-left-minus').click(function(e) {
+                $('.dec').click(function(e) {
                     // Stop acting like a button
                     e.preventDefault();
                     // Get the field name
-                    var quantity = parseInt($('#quantity').val());
+                    var quantity = parseInt($('#qu').val());
 
                     // If is not undefined
 
                     // Increment
                     if (quantity > 0) {
-                        تومان('#quantity').val(quantity - 1);
+                        $('#qu').val(quantity - 1);
                     }
                 });
+
             });
         </script>
     </x-slot>
@@ -104,13 +105,58 @@
                                         <td class="price">{{ $cartItem->price }} تومان</td>
 
                                         <td class="quantity">
-                                            <div class="input-group mb-3">
-                                                <input type="text" name="quantity"
-                                                    class="quantity form-control input-number"
-                                                    value="{{ $cartItem->quantity }}" min="1" max="100">
-                                            </div>
-                                        </td>
+                                            <div class="w-100"></div>
 
+                                            <form method="POST" action="{{ route('cart.quantity', $cartItem->id) }}">
+                                                @csrf
+                                                <div style="display: flex; width: 100%;">
+                                                    <button style="width: 30%" class="dec">
+                                                        -
+                                                    </button>
+                                                    <input name="quantity" style="width: 40%;" id="qu" type="number"
+                                                        value="{{ $cartItem->quantity }}">
+                                                    <button  style="width: 30%" class="inc">
+                                                        +                                                @csrf
+
+                                                    </button>
+                                                </div>
+                                                <button type="submit" class="btn-submit"
+                                                    style="margin-top: 5px;border: 2px solid red;
+                                                padding: 10px;
+                                                border-radius: 25px; background-color:rgb(96, 184, 96); cursor: pointer;">
+                                                    تغییر
+                                                </button>
+                                            </form>
+
+                                            {{-- <script>
+                                                // ajax
+
+                                                $.ajaxSetup({
+                                                    headers: {
+                                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                    }
+                                                });
+
+                                                $(".btn-submit").click(function(e) {
+
+                                                    e.preventDefault();
+
+                                                    let quantity = $("input[name=quantity]").val();
+
+                                                    $.ajax({
+                                                        type: 'POST',
+                                                        url: "{{ url('/cart-quantity/' . $cartItem->id) }}",
+                                                        data: {
+                                                            quantity: quantity
+                                                        },
+                                                        success: function(data) {
+                                                            alert('okkkk')
+                                                        }
+                                                    });
+                                                });
+                                            </script> --}}
+
+                                        </td>
                                         <td class="total">{{ $cartItem->total }} تومان</td>
                                     </tr><!-- END TR-->
                                 @endforeach
@@ -151,7 +197,7 @@
                         <hr>
                         <p class="d-flex total-price">
                             <span>جمع کل</span>
-                            <span>17.60 تومان</span>
+                            <span>{{ $cart->total }} تومان</span>
                         </p>
                     </div>
                     <p><a href="checkout.html" class="btn btn-primary py-3 px-4">پرداخت</a></p>

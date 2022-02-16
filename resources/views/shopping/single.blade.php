@@ -78,19 +78,10 @@
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group d-flex">
-                                <div class="select-wrap">
-                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">کوچک</option>
-                                        <option value="">متوسط</option>
-                                        <option value="">بزرگ</option>
-                                        <option value="">خیلی بزرگ</option>
-                                    </select>
-                                </div>
                             </div>
                         </div>
                         <div class="w-100"></div>
-                        <div class="input-group col-md-6 d-flex mb-3">
+                        {{-- <div class="input-group col-md-6 d-flex mb-3">
                             <span class="input-group-btn mr-2">
                                 <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
                                     <i class="ion-ios-remove"></i>
@@ -107,7 +98,7 @@
                         <div class="w-100"></div>
                         <div class="col-md-12">
                             <p style="color: #000;">موجودی 600 کیلوگرم</p>
-                        </div>
+                        </div> --}}
                     </div>
                     <form action="{{ route('cart.store', $product) }}" method="POST">
                         @csrf

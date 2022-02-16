@@ -50,6 +50,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('cart.shop');
+        return redirect()->route('shop.index');
     }
 }
