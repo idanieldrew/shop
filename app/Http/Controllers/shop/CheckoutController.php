@@ -4,7 +4,6 @@ namespace App\Http\Controllers\shop;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
-use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
@@ -17,6 +16,17 @@ class CheckoutController extends Controller
 
     public function store()
     {
-        dd(Request()->all());
+        auth()->user()->orders()->create([
+            'email' => request()->email,
+            'name' => request()->name,
+            'lastName' => request()->lastName,
+            'address' => request()->address,
+            'city' => request()->city,
+            'postalcode' => request()->postalcode,
+            'phone' => request()->phone,
+            'total' => request()->total,
+        ]);
+
+        dd('ok');
     }
 }

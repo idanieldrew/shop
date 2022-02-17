@@ -30,7 +30,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lastname">نام خانوادگی</label>
-                                    <input type="text" name="family" class="form-control" placeholder="">
+                                    <input type="text" name="lastName" class="form-control" placeholder="">
                                 </div>
                             </div>
                             <div class="w-100"></div>
@@ -78,6 +78,7 @@
                                     <label for="emailaddress">ایمیل آدرس</label>
                                     <input type="text" name="email" class="form-control" placeholder="">
                                 </div>
+                                <input type="hidden" name="total" value="{{ $cart->total }}">
                             </div>
                             <div class="w-100"></div>
                             <div class="col-md-12">
@@ -90,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                    {{-- </form><!-- END --> --}}
+                        {{-- </form><!-- END --> --}}
                 </div>
                 <div class="col-xl-5">
                     <div class="row mt-5 pt-3">
@@ -124,7 +125,7 @@
                                     </div>
                                 </div>
                                 <p><button type="submit" class="btn btn-primary py-3 px-4">ثبت سفارش</button></p>
-                            </form><!-- END -->
+                                </form><!-- END -->
 
                             </div>
                         </div>

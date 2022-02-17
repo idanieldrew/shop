@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
                 ->onUpdate('cascade')->onDelete('set null');
             $table->string('email')->nullable();
             $table->string('name');
-            $table->string('family');
+            $table->string('lastName');
             $table->string('address');
             $table->string('city');
             $table->string('postalcode')->nullable();
