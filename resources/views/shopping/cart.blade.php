@@ -201,7 +201,7 @@
                             <span>{{ $cart->total }} تومان</span>
                         </p>
                     </div>
-                    <p><a href="checkout.html" class="btn btn-primary py-3 px-4">پرداخت</a></p>
+                    <p><a href="{{ route('checkout.index') }}" class="btn btn-primary py-3 px-4">پرداخت</a></p>
                 </div>
             </div>
         </div>

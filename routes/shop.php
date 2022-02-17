@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\shop\CartController;
+use App\Http\Controllers\shop\CheckoutController;
 use App\Http\Controllers\shop\LandingController;
 use App\Http\Controllers\shop\ShopController;
 
@@ -21,4 +22,7 @@ Route::middleware('auth')->post('cart/{product}', [CartController::class, 'store
 // store cart
 Route::middleware('auth')->get('cart', [CartController::class, 'index'])->name('cart.index');
 
+// Cange quantity in cart page
 Route::middleware('auth')->post('cart-quantity/{cartItem}', [CartController::class, 'quantity'])->name('cart.quantity');
+
+Route::middleware('auth')->get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
