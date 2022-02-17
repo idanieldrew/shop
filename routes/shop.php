@@ -26,3 +26,5 @@ Route::middleware('auth')->get('cart', [CartController::class, 'index'])->name('
 Route::middleware('auth')->post('cart-quantity/{cartItem}', [CartController::class, 'quantity'])->name('cart.quantity');
 
 Route::middleware('auth')->get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+Route::middleware('auth')->post('payment', [CheckoutController::class, 'store'])->name('checkout.store');
