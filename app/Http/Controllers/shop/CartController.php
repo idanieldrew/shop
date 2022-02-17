@@ -58,8 +58,8 @@ class CartController extends Controller
 
     public function quantity($cartItem, Request $request)
     {
-        // dd($cartItem, $request->all());
         $cartItem = CartItem::whereId($cartItem)->first();
+
         $total = $request->quantity * $cartItem->price;
 
         $cartItem->update([
@@ -67,10 +67,16 @@ class CartController extends Controller
             'total' => $total
         ]);
 
-        $cartItem->cart()->update([
-            'total' => + $total
-        ]);
+        /************ */
+        $cart = Cart::where('user_id', auth()->user()->id)->first();
 
+        $cartItems = CartItem::where('cart_id', $cart->id)->get();
+
+        $p = $cartItems->sum('total');
+
+        $cartItem->cart()->update([
+            'total' => $p
+        ]);
         return redirect()->route('cart.index');
     }
 }
