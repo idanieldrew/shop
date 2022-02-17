@@ -114,9 +114,10 @@
                                                         -
                                                     </button>
                                                     <input name="quantity" style="width: 40%;" id="qu" type="number"
-                                                        value="{{ $cartItem->quantity }}">
-                                                    <button  style="width: 30%" class="inc">
-                                                        +                                                @csrf
+                                                        value="{{ $cartItem->quantity }}" min="1"
+                                                        max="{{ $cartItem->products->quantity }}">
+                                                    <button style="width: 30%" class="inc">
+                                                        + @csrf
 
                                                     </button>
                                                 </div>
@@ -167,7 +168,7 @@
             </div>
             <div class="row justify-content-end">
                 <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                    <div class="cart-total mb-3">
+                    {{-- <div class="cart-total mb-3">
                         <h3>کد تخفیف</h3>
                         <p>کد تخفیف خود را وارد کنید</p>
                         <form action="#" class="info">
@@ -176,8 +177,8 @@
                                 <input type="text" class="form-control text-left px-3" placeholder="">
                             </div>
                         </form>
-                    </div>
-                    <p><a href="checkout.html" class="btn btn-primary py-3 px-4">تایید کد تخفیف</a></p>
+                    </div> --}}
+                    <p><a href="{{ route('shop.index') }}" class="btn btn-primary py-3 px-4">ادامه خرید</a></p>
                 </div>
                 <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                     <div class="cart-total mb-3">
