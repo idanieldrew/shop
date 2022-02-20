@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    const TYPE_ADMIN = 'admin';
+    const TYPE_SUPER = 'super';
+    const TYPE_USER = 'user';
+    const TYPES = [self::TYPE_ADMIN, self::TYPE_SUPER, self::TYPE_USER];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -50,5 +55,27 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    /*******END RELATIONS */
+    
+    public function isNormal()
+    {
+        return $this->type == self::TYPE_USER;
+    }
+
+    public function isAdmin()
+    {
+        return $this->type == self::TYPE_ADMIN;
+    }
+
+    public function isSuper()
+    {
+        return $this->type == self::TYPE_SUPER;
     }
 }
