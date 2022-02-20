@@ -13,4 +13,11 @@ class ProductController extends Controller
 
         return view('panel.Product.index', compact('products'));
     }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->route('product.index');
+    }
 }

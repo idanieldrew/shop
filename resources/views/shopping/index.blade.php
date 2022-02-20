@@ -173,7 +173,7 @@
                                 <div class="bottom-area d-flex px-3">
                                     <div class="m-auto d-flex">
 
-                                        <a href="{{ route('shop.show',$product->slug) }}"
+                                        <a href="{{ route('shop.show', $product->slug) }}"
                                             class="buy-now d-flex justify-content-center align-items-center mx-1">
                                             <span><i class="ion-ios-cart"></i></span>
                                         </a>

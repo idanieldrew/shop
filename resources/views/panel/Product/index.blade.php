@@ -57,11 +57,15 @@
                                   <thead>
                                       <tr class="title-row">
                                           <th>#</th>
+                                          <th>عکس</th>
                                           <th>نام</th>
                                           <th>جزییات</th>
                                           <th>قیمت</th>
                                           <th>موجودی</th>
                                           <th>وضعیت </th>
+                                          <th>دیدن </th>
+                                          <th>ویراریش </th>
+                                          <th>حذف </th>
                                       </tr>
                                   </thead>
                                   <tbody>
@@ -69,15 +73,13 @@
                                           <tr>
                                               <td><a href="">{{ $product->id }} </a></td>
                                               <td>
-                                                  <div class="d-flex justify-content-center align-items-center">
-                                                      <img src="{{ asset('dashboard/images/xs/avatar2.jpg') }}"
-                                                          data-toggle="tooltip" data-placement="top" title=""
-                                                          alt="Avatar" class="w35 h35 rounded"
-                                                          data-original-title="Avatar Name">
-                                                      <div class="ms-3">
-                                                          <a href="javascript:void(0);"
-                                                              title="">{{ $product->name }}</a>
-                                                      </div>
+                                                  <img src="{{ asset('dashboard/images/xs/avatar2.jpg') }}"
+                                                      data-toggle="tooltip" data-placement="top" title="" alt="Avatar"
+                                                      class="w35 h35 rounded" data-original-title="Avatar Name">
+                                              </td>
+                                              <td>
+                                                  <div class="ms-3">
+                                                      <a href="javascript:void(0);" title="">{{ $product->name }}</a>
                                                   </div>
                                               </td>
                                               <td>{{ $product->details }}</td>
@@ -85,27 +87,36 @@
                                               <td>1{{ $product->quantity }}</td>
                                               <td><span class="badge badge-success ml-0 mr-0">تایید شده</span></td>
                                               <td>
-                                                  <button type="button" class="btn btn-sm btn-default ac-btn-ui"
-                                                      data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                  <a href="{{ route('shop.show', $product->slug) }}"
+                                                      class="btn btn-sm btn-default ac-btn-ui" data-bs-toggle="tooltip"
+                                                      data-bs-placement="top" title="مشاهده">
                                                       <i class="ri-eye-fill"></i>
-                                                  </button>
+                                                  </a>
+                                              </td>
+                                              <td>
+                                                  <form action="{{ route('shop.show', $product->id) }}"
+                                                      method="post">
+                                                      @method('delete')
+                                                      @csrf
+                                                      <button type="button" class="btn btn-sm btn-default ac-btn-ui"
+                                                          data-bs-toggle="tooltip" data-bs-placement="top"
+                                                          title="ویرایش" aria-describedby="tooltip286794"><i
+                                                              class="ri-edit-2-line"></i></button>
+                                                  </form>
+                                              </td>
+                                              <td>
 
-
-                                                  <button type="button" class="btn btn-sm btn-default ac-btn-ui"
-                                                      data-bs-toggle="tooltip" data-bs-placement="top" title="تایید"
-                                                      aria-describedby="tooltip66185"><i
-                                                          class="ri-check-line"></i></button>
-
-                                                  <button type="button" class="btn btn-sm btn-default ac-btn-ui"
-                                                      data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش"
-                                                      aria-describedby="tooltip286794"><i
-                                                          class="ri-edit-2-line"></i></button>
-                                                  <button type="button"
-                                                      class="btn btn-sm btn-default ac-btn-ui js-btn-delete"
-                                                      data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"
-                                                      aria-describedby="tooltip286794"><i
-                                                          class="ri-delete-bin-line"></i>
-                                                  </button>
+                                                <form action="{{ route('product.destroy', $product->id) }}"
+                                                      method="post">
+                                                      @csrf
+                                                      @method('delete')
+                                                      <button type="submit"
+                                                          class="btn btn-sm btn-default ac-btn-ui js-btn-delete"
+                                                          data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"
+                                                          aria-describedby="tooltip286794"><i
+                                                              class="ri-delete-bin-line"></i>
+                                                      </button>
+                                                  </form>
                                               </td>
                                           </tr>
                                       @endforeach
