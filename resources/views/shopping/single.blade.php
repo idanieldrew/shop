@@ -56,9 +56,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-5 ftco-animate">
-                    <a href="pics/product-1.jpg" class="image-popup"><img
-                            src="{{ asset('shop/pics/product-1.jpg') }}" class="img-fluid"
-                            alt="Colorlib Template"></a>
+                    <a href="pics/product-1.jpg" class="image-popup"><img src="{{ $product->image }}"
+                            class="img-fluid" alt="Colorlib Template"></a>
                 </div>
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                     <h3>{{ $product->name }}</h3>
@@ -127,8 +126,7 @@
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="product">
                             <a href="{{ route('shop.show', $pro->slug) }}" class="img-prod"><img
-                                    class="img-fluid" src="{{ asset('shop/pics/product-1.jpg') }}"
-                                    alt="Colorlib Template">
+                                    class="img-fluid" src="{{ $pro->image }}" alt="Colorlib Template">
                                 <div class="overlay"></div>
                             </a>
                             <div class="text py-3 pb-4 px-3 text-center">

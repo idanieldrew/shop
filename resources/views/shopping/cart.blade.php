@@ -93,7 +93,7 @@
 
                                         <td class="image-prod">
                                             <div class="img"
-                                                style="background-image:url('{{ asset('shop/pics/product-3.jpg') }}');">
+                                                style="background-image:url('{{ $cartItem->products->image }}');">
                                             </div>
                                         </td>
 
