@@ -1,6 +1,6 @@
   <x-panel>
       <x-slot name="title">
-          لیست کاربران
+          لیست محصولات
       </x-slot>
       <!--begin::Main Content-->
       <div class="main-content">
@@ -73,9 +73,9 @@
                                           <tr>
                                               <td><a href="">{{ $product->id }} </a></td>
                                               <td>
-                                                  <img src="{{ asset('dashboard/images/xs/avatar2.jpg') }}"
+                                                  <img src="{{ $product->image }}" style="width: 50%; height: 10%;"
                                                       data-toggle="tooltip" data-placement="top" title="" alt="Avatar"
-                                                      class="w35 h35 rounded" data-original-title="Avatar Name">
+                                                      class="rounded" data-original-title="Avatar Name">
                                               </td>
                                               <td>
                                                   <div class="ms-3">
@@ -94,8 +94,7 @@
                                                   </a>
                                               </td>
                                               <td>
-                                                  <form action="{{ route('shop.show', $product->id) }}"
-                                                      method="post">
+                                                  <form action="{{ route('shop.show', $product->id) }}" method="post">
                                                       @method('delete')
                                                       @csrf
                                                       <button type="button" class="btn btn-sm btn-default ac-btn-ui"
@@ -106,7 +105,7 @@
                                               </td>
                                               <td>
 
-                                                <form action="{{ route('product.destroy', $product->id) }}"
+                                                  <form action="{{ route('product.destroy', $product->id) }}"
                                                       method="post">
                                                       @csrf
                                                       @method('delete')

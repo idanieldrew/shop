@@ -3,7 +3,7 @@
 use App\Http\Controllers\Panel\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('panel')->group(function () {
+Route::prefix('panel')->middleware('auth')->group(function () {
     Route::prefix('product')->group(function () {
 
         // All Products
@@ -11,5 +11,11 @@ Route::prefix('panel')->group(function () {
 
         // Detsroy Product
         Route::delete('delete/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+        // Create Product
+        Route::get('create', [ProductController::class, 'create'])->name('product.create');
+
+        // Create Product
+        Route::post('store', [ProductController::class, 'store'])->name('product.store');
     });
 });

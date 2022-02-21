@@ -56,7 +56,7 @@
         <ul>
             <li class="item-li i-courses has-sub-ui"><a class="has-arrow-ui" href="#">محصولات</a>
                 <ul class="collapse show">
-                    <li><a href="">ایجاد محصول</a></li>
+                    <li><a href="{{ route('product.create') }}">ایجاد محصول</a></li>
                     <li><a href="{{ route('product.index') }}">لیست محصول</a></li>
                 </ul>
             </li>
@@ -287,6 +287,8 @@
     <script src="{{ asset('dashboard/vendor/sweetalert/sweetalert2.all.min.js') }}"></script>
     <!-- sweetalert Plugin Js -->
     <script src="{{ asset('dashboard/js/custom.js') }}"></script>
+
+    {{ $scripts ?? ''}}
     <!-- Custom Js -->
     <!--end::Scripts-->
 
