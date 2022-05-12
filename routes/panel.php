@@ -3,7 +3,7 @@
 use App\Http\Controllers\Panel\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('panel')->middleware('auth')->group(function () {
+Route::prefix('panel')->middleware('panel')->group(function () {
     Route::prefix('product')->group(function () {
 
         // All Products
