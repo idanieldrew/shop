@@ -46,9 +46,14 @@ class ShopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function searches(Request $request)
     {
-        //
+        $categories = Category::all();
+
+        $products = Product::where('name', 'LIKE', "%" . $request->keyword . "%")->orWhere('price', 'LIKE', "%" . $request->keyword . "%")->paginate();
+
+        // dd($products);
+        return view('shopping.shop', compact('products', 'categories'));
     }
 
     /**
@@ -64,39 +69,5 @@ class ShopController extends Controller
         $products = Product::where('slug', '!=', $product)->inRandomOrder()->take(4)->get();
 
         return view('shopping.single', compact('product', 'products'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

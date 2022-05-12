@@ -16,6 +16,10 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
+                <form class="mb-2" action="{{ route('searches') }}"  method="GET">
+                    <input type="text" name="keyword" placeholder="سرچ کنید">
+                    <button style="background-color: blue">جستجو</button>
+                </form>
                 <div class="col-md-10 mb-5 text-center">
                     <ul class="product-category">
                         <li><a href="{{ route('shop.index') }}">همه ی محصولات</a></li>
@@ -67,6 +71,8 @@
         #pag {
             margin-left: auto margin-right: auto
         }
+
+        # search {}
 
     </style>
 </x-app-layout>

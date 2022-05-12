@@ -33,7 +33,7 @@
 <body class="goto-here">
 
     <!--header-->
-    <div class="py-1 bg-primary">
+    <div class="py-1 bg-primary" id="app">
         <div class="container">
             <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
                 <div class="col-lg-12 d-block">
@@ -85,6 +85,9 @@
                             ورود</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link">بلاگ فروت لند</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
+                    <li class="nav-item">
+                    </li>
+
                     <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
                                 class="icon-shopping_cart"></span>[0]</a></li>
                 </ul>

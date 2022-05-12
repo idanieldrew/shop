@@ -13,6 +13,9 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 // shop page
 Route::get('/shops', [ShopController::class, 'index'])->name('shop.index');
 
+// search
+Route::get('/search', [ShopController::class, 'searches'])->name('searches');
+
 // show page
 Route::get('shops/{product}', [ShopController::class, 'show'])->name('shop.show');
 
