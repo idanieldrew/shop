@@ -70,7 +70,7 @@
                     <div class="text-center p-t-136">
                         <a class="txt2" href="{{ route('login') }}">
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                            ورود
+                            قبلا ثبت نام کردید
                         </a>
                     </div>
                     <!-- / register-->

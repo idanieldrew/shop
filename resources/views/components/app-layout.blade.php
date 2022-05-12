@@ -81,7 +81,8 @@
                             <a class="dropdown-item" href="checkout.html">سبد خرید</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">فروت لند</a></li>
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">ثبت نام /
+                            ورود</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link">بلاگ فروت لند</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
                     <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
@@ -163,17 +164,16 @@
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">وب روبیک</h2>
+                        <h2 class="ftco-heading-2">دانیال</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">ایران - شیراز
-                                        -
-                                        بلوار جمهوری</span>
+                                <li><span class="icon icon-map-marker"></span><span class="text">ایران -
+                                        تهران</span>
                                 </li>
                                 <li><a href="#"><span class="icon icon-phone"></span><span
-                                            class="text">07132309534</span></a></li>
+                                            class="text">09211271720</span></a></li>
                                 <li><a href="#"><span class="icon icon-envelope"></span><span
-                                            class="text">info@webrubik.com</span></a>
+                                            class="text">daniel2drew@gmail.com</span></a>
                                 </li>
                             </ul>
                         </div>

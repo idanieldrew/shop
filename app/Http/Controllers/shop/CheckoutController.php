@@ -25,22 +25,22 @@ class CheckoutController extends Controller
             'city' => 'required',
             'postalcode' => 'required',
             'phone' => 'required',
-
+            'total' => 'required',
         ]);
 
-        // dd($request->all());
         auth()->user()->orders()->create([
-            $validated
-            /*'email' => $request->email,
+            'email' => $request->email,
             'name' => $request->name,
             'lastName' => $request->lastName,
             'address' => $request->address,
             'city' => $request->city,
             'postalcode' => $request->postalcode,
             'phone' => $request->phone,
-            'total' => $request->total,*/
+            'total' => $request->total
         ]);
 
         dd('ok');
+
+        // درگاه
     }
 }
