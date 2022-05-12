@@ -13,6 +13,16 @@
         </div>
     </div>
 
+    @if ($errors)
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                </li>
+            @endforeach
+        </ul>
+    @endif
+
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -25,6 +35,7 @@
                                 <div class="form-group">
                                     <label for="firstname">نام</label>
                                     <input type="text" name="name" class="form-control" placeholder="">
+
                                 </div>
                             </div>
                             <div class="col-md-6">

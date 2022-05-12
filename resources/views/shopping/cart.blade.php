@@ -193,7 +193,7 @@
                         </p>
                         <p class="d-flex">
                             <span>تخفیف</span>
-                            <span>3.00 تومان</span>
+                            <span>0 تومان</span>
                         </p>
                         <hr>
                         <p class="d-flex total-price">

@@ -52,7 +52,7 @@
                     <!-- enter password-->
                     <div class="wrap-input100 validate-input" data-validate="لطفا رمز عبور قبلی را وارد کنید!">
                         <input class="input100" type="password" name="password_confirmation"
-                            placeholder="رمز عبور">
+                            placeholder="تکرار رمز عبور">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
