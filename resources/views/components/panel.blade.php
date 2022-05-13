@@ -60,49 +60,6 @@
                     <li><a href="{{ route('product.index') }}">لیست محصول</a></li>
                 </ul>
             </li>
-
-            <li class="item-li i-courses has-sub-ui"><a class="has-arrow-ui" href="#">دسته بندی ها</a>
-                <ul class="collapse show">
-                    <li><a href="{{ asset('dashboard/create-new-course.html') }}">ایجاد دسته بندی</a></li>
-                    <li><a href="{{ asset('dashboard/courses.html') }}">لیست دسته بندی</a></li>
-                </ul>
-            </li>
-            <li class="item-li i-users has-sub-ui"><a class="has-arrow-ui" href="#"> کاربران</a>
-                <ul class="collapse show">
-                    <li><a href="">لیست کاربران</a></li>
-                </ul>
-            </li>
-            <li class="item-li i-user-permissions has-sub-ui"><a class="has-arrow-ui" href="#"> مدیریت کاربران</a>
-                <ul class="collapse show">
-                    <li class="i-roles"><a href="roles-list.html">نقش های کاربری</a></li>
-                    <li class="i-permissions"><a href="">مجوز ها</a></li>
-                </ul>
-            </li>
-            <li class="item-li i-categories"><a href="{{ asset('dashboard/categories.html') }}">دسته بندی ها</a></li>
-            <li class="item-li i-slideshow"><a href="slideshow.html">اسلایدشو</a></li>
-            <li class="item-li i-banners"><a href="banners.html">بنر ها</a></li>
-            <li class="item-li i-articles"><a href="articles.html">مقالات</a></li>
-            <li class="item-li i-ads"><a href="ads.html">تبلیغات</a></li>
-            <li class="item-li i-comments"><a href="{{ asset('dashboard/comments.html') }}"> نظرات</a></li>
-            <li class="item-li i-tickets"><a href="tickets.html"> تیکت ها</a></li>
-            <li class="item-li i-discounts"><a href="discounts.html">تخفیف ها</a></li>
-            <li class="item-li i-transactions"><a href="transactions.html">تراکنش ها</a></li>
-            <li class="item-li i-checkouts"><a href="{{ asset('dashboard/checkouts.html') }}">تسویه حساب ها</a></li>
-            <li class="item-li i-notification__management"><a href="notification-management.html">مدیریت اطلاع رسانی</a>
-            </li>
-
-            <li class="item-li i-web-apps has-sub-ui"><a class="has-arrow-ui" href="#"> وب اپلیکشن ها</a>
-                <ul class="collapse show">
-                    <li class="i-email"><a href="email-box.html"> ایمیل</a></li>
-                    <li class="i-messenger"><a href="">پیامرسان</a></li>
-                </ul>
-            </li>
-
-
-            <li class="item-li i-setting"><a href="notification-management.html">تنظیمات</a>
-            </li>
-            <li class="item-li i-user__inforamtion"><a href="profile.html">اطلاعات کاربری</a></li>
-
         </ul>
     </div>
     <!--end::Sidebar-->

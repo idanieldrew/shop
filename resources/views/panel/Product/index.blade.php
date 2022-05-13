@@ -14,16 +14,21 @@
                   </div>
               </div>
           </div>
+          <form action="{{ route('product.searches') }}" method="GET">
+              <input type="text" name="keyword" placeholder="جستجوی محصول">
+              <button type="submit" class="btn btn-light-primary filter-btn-ui dropdown-toggle">فیلتر
+              </button>
+          </form>
           <div class="row clearfix">
               <div class="col-lg-12 col-md-12">
                   <div class="card pb-0">
                       <div class="header d-flex flex-wrap align-items-center justify-content-between">
                           <div class="t-header-search ms-0">
-                              <div class="t-header-searchbox">
-                                  <input type="text" class="w-250px" placeholder="جستجوی محصول">
+                              <div class="t-header">
+
                               </div>
                           </div>
-                          <div class="mt-3 mt-sm-0">
+                          {{-- <div class="mt-3 mt-sm-0">
                               <button type="submit" class="btn btn-light-primary filter-btn-ui dropdown-toggle"
                                   data-bs-auto-close="false" id="filter-dropdown-ui" data-bs-toggle="dropdown"
                                   aria-expanded="true" data-bs-offset="0,15">فیلتر
@@ -48,7 +53,7 @@
                                   </div>
 
                               </div>
-                          </div>
+                          </div> --}}
 
                       </div>
                       <div class="body">
@@ -84,8 +89,8 @@
                                               </td>
                                               <td>{{ $product->details }}</td>
                                               <td>{{ $product->price }}</td>
-                                              <td>1{{ $product->quantity }}</td>
-                                              <td><span class="badge badge-success ml-0 mr-0">تایید شده</span></td>
+                                              <td>{{ $product->quantity }}</td>
+                                              {{-- <td><span class="badge badge-success ml-0 mr-0">تایید شده</span></td> --}}
                                               <td>
                                                   <a href="{{ route('shop.show', $product->slug) }}"
                                                       class="btn btn-sm btn-default ac-btn-ui" data-bs-toggle="tooltip"
@@ -93,15 +98,13 @@
                                                       <i class="ri-eye-fill"></i>
                                                   </a>
                                               </td>
+                                              
                                               <td>
-                                                  <form action="{{ route('shop.show', $product->id) }}" method="post">
-                                                      @method('delete')
-                                                      @csrf
-                                                      <button type="button" class="btn btn-sm btn-default ac-btn-ui"
-                                                          data-bs-toggle="tooltip" data-bs-placement="top"
-                                                          title="ویرایش" aria-describedby="tooltip286794"><i
-                                                              class="ri-edit-2-line"></i></button>
-                                                  </form>
+                                                  <a href="{{ route('product.edit', $product->slug) }}"
+                                                      class="btn btn-sm btn-default ac-btn-ui" data-bs-toggle="tooltip"
+                                                      data-bs-placement="top" title="ویرایش"
+                                                      aria-describedby="tooltip286794"><i
+                                                          class="ri-edit-2-line"></i></a>
                                               </td>
                                               <td>
 

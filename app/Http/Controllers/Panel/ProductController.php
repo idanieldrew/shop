@@ -18,6 +18,27 @@ class ProductController extends Controller
         return view('panel.Product.index', compact('products'));
     }
 
+    public function edit(Product $product)
+    {
+        $categories = Category::all();
+
+        return view('panel.Product.edit', compact('product', 'categories'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $product->update([
+            'name' => $name = $request->name,
+            'slug' => make_slug($name),
+            'details' => $request->details,
+            'price' => $request->price,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+        ]);
+
+        return redirect()->route('product.index');
+    }
+
     public function create()
     {
         $categories = Category::all();
@@ -63,5 +84,19 @@ class ProductController extends Controller
         $file->move(public_path($imagePath), $fileName);
 
         return "http://127.0.0.1:8000/shop/pics/$fileName";
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function searches(Request $request)
+    {
+        $products = Product::where('name', 'LIKE', "%" . $request->keyword . "%")->orWhere('price', 'LIKE', "%" . $request->keyword . "%")->paginate();
+
+        // dd($products);
+        return view('panel.Product.index', compact('products'));
     }
 }

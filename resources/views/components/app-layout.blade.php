@@ -69,20 +69,21 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.html" class="nav-link">خانه</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">خرید</a>
-                        <div class="dropdown-menu" id="top-dropdown-menu" aria-labelledby="dropdown04">
+                    <li class="nav-item active"><a href="{{ route('landing') }}" class="nav-link">خانه</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('shop.index') }}" aria-expanded="false">خرید</a>
+                        {{-- <div class="dropdown-menu" id="top-dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="shop.html">خرید</a>
                             <a class="dropdown-item" href="wishlist.html">محصولات مورد علاقه</a>
                             <a class="dropdown-item" href="product-single.html">محصولات تکی</a>
                             <a class="dropdown-item" href="cart.html">اشتراک</a>
                             <a class="dropdown-item" href="checkout.html">سبد خرید</a>
-                        </div>
+                        </div> --}}
                     </li>
-                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">ثبت نام /
-                            ورود</a></li>
+                    @guest
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">ثبت نام /
+                                ورود</a></li>
+                    @endguest
                     <li class="nav-item"><a href="blog.html" class="nav-link">بلاگ فروت لند</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
                     <li class="nav-item">
