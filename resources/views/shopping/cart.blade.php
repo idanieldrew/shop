@@ -88,7 +88,12 @@
                             <tbody>
                                 @foreach ($cartItems as $cartItem)
                                     <tr class="text-center">
-                                        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a>
+                                        <td class="product-remove">
+                                            <form action="{{ route('cart.destroy', $cartItem->id) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit"><span class="ion-ios-close"></span></button>
+                                            </form>
                                         </td>
 
                                         <td class="image-prod">

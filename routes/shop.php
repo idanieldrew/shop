@@ -22,7 +22,10 @@ Route::get('shops/{product}', [ShopController::class, 'show'])->name('shop.show'
 // store cart
 Route::middleware('auth')->post('cart/{product}', [CartController::class, 'store'])->name('cart.store');
 
-// store cart
+// destroy cart
+Route::middleware('auth')->delete('cart/{cartItem}', [CartController::class, 'destroy'])->name('cart.destroy');
+
+// show cart
 Route::middleware('auth')->get('cart', [CartController::class, 'index'])->name('cart.index');
 
 // Cange quantity in cart page

@@ -99,7 +99,7 @@
                             <p style="color: #000;">موجودی 600 کیلوگرم</p>
                         </div> --}}
                     </div>
-                    <form action="{{ route('cart.store', $product) }}" method="POST">
+                    <form action="{{ route('cart.store', $product->id) }}" method="POST">
                         @csrf
                         <button style="background-color: rgb(255, 60, 0)" type="submit">
                             اضافه به سبد خرید

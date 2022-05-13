@@ -22,7 +22,8 @@ class CartController extends Controller
     public function store(Product $product)
     {
         $cart = Cart::where('user_id', auth()->user()->id)->first();
-        $cartItem = CartItem::where('product_id', $product->id)->first();
+        $cartItem = CartItem::where('cart_id', $cart->id)->where('product_id', $product->id)->first();
+
 
         if ($cart) {
             if ($cartItem) {
@@ -78,5 +79,12 @@ class CartController extends Controller
             'total' => $p
         ]);
         return redirect()->route('cart.index');
+    }
+
+    public function destroy(CartItem $cartItem)
+    {
+        $cartItem->delete();
+
+        return redirect()->route('cart.index')->with('danger', 'حذف کردید');
     }
 }
