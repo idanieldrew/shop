@@ -11,13 +11,24 @@ this [Link](https://www.geeksforgeeks.org/how-to-install-php-composer-on-windows
 
 [Laravel](https://laravel.com/docs/9.x#installation-via-composer)
 
-## 4- Database & fake data
+## 4- cp .env.example .env
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=Your password
+```
+
+## 5- Database & fake data
 
 ```bash
 php artisan migrate --seed
 ```
 
-## 5- Serve
+## 6- Serve
 
 ```bash
 php artisan serve
