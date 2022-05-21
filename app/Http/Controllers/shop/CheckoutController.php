@@ -39,8 +39,25 @@ class CheckoutController extends Controller
             'total' => $request->total
         ]);
 
-        dd('ok');
+        dd('درگاه');
+        /*$response = zarinpal()
+            ->merchantId('00000000-0000-0000-0000-000000000000') // تعیین مرچنت کد در حین اجرا - اختیاری
+            ->amount($request->price) // مبلغ تراکنش
+            ->request()
+            ->description('اوکیه') // توضیحات تراکنش
+            ->callbackUrl('https://127.0.0.1/shops') // آدرس برگشت پس از پرداخت
+            ->mobile($request->phone) // شماره موبایل مشتری - اختیاری
+            ->email($request->email) // ایمیل مشتری - اختیاری
+            ->send();
 
-        // درگاه
+        if (!$response->success()) {
+            return $response->error()->message();
+        }
+
+        // ذخیره اطلاعات در دیتابیس
+        // $response->authority();
+
+        // هدایت مشتری به درگاه پرداخت
+        return $response->redirect();*/
     }
 }

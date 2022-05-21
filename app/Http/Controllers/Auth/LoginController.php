@@ -40,7 +40,7 @@ class LoginController extends Controller
             return redirect()->route('product.index');
         }
 
-        return redirect()->route('shop.index');
+        return redirect()->intended();
     }
 
     /**

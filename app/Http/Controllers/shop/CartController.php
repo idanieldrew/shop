@@ -22,7 +22,7 @@ class CartController extends Controller
     public function store(Product $product)
     {
         $cart = Cart::where('user_id', auth()->user()->id)->first();
-        $cartItem = CartItem::where('cart_id', $cart->id)->where('product_id', $product->id)->first();
+        $cartItem = CartItem::where('cart_id', $cart->id ?? null)->where('product_id', $product->id)->first();
 
 
         if ($cart) {
