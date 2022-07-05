@@ -5,6 +5,7 @@ namespace App\Http\Controllers\shop;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CheckoutController extends Controller
 {
@@ -39,7 +40,7 @@ class CheckoutController extends Controller
             'total' => $request->total
         ]);
 
-        dd('درگاه');
+        Log::info("درگاه پرداخت");
         /*$response = zarinpal()
             ->merchantId('00000000-0000-0000-0000-000000000000') // تعیین مرچنت کد در حین اجرا - اختیاری
             ->amount($request->price) // مبلغ تراکنش
