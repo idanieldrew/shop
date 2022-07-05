@@ -50,6 +50,12 @@
             </div>
         </div>
     </div>
+    @dd(\Illuminate\Support\Facades\Session::has('empty'))
+    @if (\Illuminate\Support\Facades\Session::has('empty'))
+        <div class="alert alert-warning small" style="text-align: center">
+            {{ \Illuminate\Support\Facades\Session::get('empty') }}
+        </div>
+    @endif
     @if (\Illuminate\Support\Facades\Session::has('success'))
         <div class="alert alert-success small" style="text-align: center">
             {{ \Illuminate\Support\Facades\Session::get('success') }}
@@ -69,72 +75,75 @@
             @endforeach
         </div>
     @endif
-    <section class="ftco-section ftco-cart">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 ftco-animate">
-                    <div class="cart-list">
-                        <table class="table">
-                            <thead class="thead-primary">
-                                <tr class="text-center">
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th>نام محصول</th>
-                                    <th>قیمت</th>
-                                    <th>تعداد</th>
-                                    <th>جمع کل</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($cartItems as $cartItem)
+    @if (5 < 2)
+        <section class="ftco-section ftco-cart">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ftco-animate">
+                        <div class="cart-list">
+                            <table class="table">
+                                <thead class="thead-primary">
                                     <tr class="text-center">
-                                        <td class="product-remove">
-                                            <form action="{{ route('cart.destroy', $cartItem->id) }}" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit"><span class="ion-ios-close"></span></button>
-                                            </form>
-                                        </td>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>نام محصول</th>
+                                        <th>قیمت</th>
+                                        <th>تعداد</th>
+                                        <th>جمع کل</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($cartItems as $cartItem)
+                                        <tr class="text-center">
+                                            <td class="product-remove">
+                                                <form action="{{ route('cart.destroy', $cartItem->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit"><span class="ion-ios-close"></span></button>
+                                                </form>
+                                            </td>
 
-                                        <td class="image-prod">
-                                            <div class="img"
-                                                style="background-image:url('{{ $cartItem->products->image }}');">
-                                            </div>
-                                        </td>
-
-                                        <td class="product-name">
-                                            <h3>{{ $cartItem->products->name }}</h3>
-                                            <p>{{ $cartItem->products->details }}</p>
-                                        </td>
-
-                                        <td class="price">{{ $cartItem->price }} تومان</td>
-
-                                        <td class="quantity">
-                                            <div class="w-100"></div>
-
-                                            <form method="POST" action="{{ route('cart.quantity', $cartItem->id) }}">
-                                                @csrf
-                                                <div style="display: flex; width: 100%;">
-                                                    <button style="width: 30%" class="dec">
-                                                        -
-                                                    </button>
-                                                    <input name="quantity" style="width: 40%;" id="qu" type="number"
-                                                        value="{{ $cartItem->quantity }}" min="1"
-                                                        max="{{ $cartItem->products->quantity }}">
-                                                    <button style="width: 30%" class="inc">
-                                                        + @csrf
-
-                                                    </button>
+                                            <td class="image-prod">
+                                                <div class="img"
+                                                    style="background-image:url('{{ $cartItem->products->image }}');">
                                                 </div>
-                                                <button type="submit" class="btn-submit"
-                                                    style="margin-top: 5px;border: 2px solid red;
+                                            </td>
+
+                                            <td class="product-name">
+                                                <h3>{{ $cartItem->products->name }}</h3>
+                                                <p>{{ $cartItem->products->details }}</p>
+                                            </td>
+
+                                            <td class="price">{{ $cartItem->price }} تومان</td>
+
+                                            <td class="quantity">
+                                                <div class="w-100"></div>
+
+                                                <form method="POST"
+                                                    action="{{ route('cart.quantity', $cartItem->id) }}">
+                                                    @csrf
+                                                    <div style="display: flex; width: 100%;">
+                                                        <button style="width: 30%" class="dec">
+                                                            -
+                                                        </button>
+                                                        <input name="quantity" style="width: 40%;" id="qu"
+                                                            type="number" value="{{ $cartItem->quantity }}"
+                                                            min="1" max="{{ $cartItem->products->quantity }}">
+                                                        <button style="width: 30%" class="inc">
+                                                            + @csrf
+
+                                                        </button>
+                                                    </div>
+                                                    <button type="submit" class="btn-submit"
+                                                        style="margin-top: 5px;border: 2px solid red;
                                                 padding: 10px;
                                                 border-radius: 25px; background-color:rgb(96, 184, 96); cursor: pointer;">
-                                                    تغییر
-                                                </button>
-                                            </form>
+                                                        تغییر
+                                                    </button>
+                                                </form>
 
-                                            {{-- <script>
+                                                {{-- <script>
                                                 // ajax
 
                                                 $.ajaxSetup({
@@ -162,18 +171,18 @@
                                                 });
                                             </script> --}}
 
-                                        </td>
-                                        <td class="total">{{ $cartItem->total }} تومان</td>
-                                    </tr><!-- END TR-->
-                                @endforeach
-                            </tbody>
-                        </table>
+                                            </td>
+                                            <td class="total">{{ $cartItem->total }} تومان</td>
+                                        </tr><!-- END TR-->
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-end">
-                <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                    {{-- <div class="cart-total mb-3">
+                <div class="row justify-content-end">
+                    <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                        {{-- <div class="cart-total mb-3">
                         <h3>کد تخفیف</h3>
                         <p>کد تخفیف خود را وارد کنید</p>
                         <form action="#" class="info">
@@ -183,32 +192,33 @@
                             </div>
                         </form>
                     </div> --}}
-                    <p><a href="{{ route('shop.index') }}" class="btn btn-primary py-3 px-4">ادامه خرید</a></p>
-                </div>
-                <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                    <div class="cart-total mb-3">
-                        <h3>صورت حساب</h3>
-                        <p class="d-flex">
-                            <span>جمع کل</span>
-                            <span>{{ $cart->total }}تومان</span>
-                        </p>
-                        <p class="d-flex">
-                            <span>هزینه ی تحویل</span>
-                            <span>0.00 تومان</span>
-                        </p>
-                        <p class="d-flex">
-                            <span>تخفیف</span>
-                            <span>0 تومان</span>
-                        </p>
-                        <hr>
-                        <p class="d-flex total-price">
-                            <span>جمع کل</span>
-                            <span>{{ $cart->total }} تومان</span>
-                        </p>
+                        <p><a href="{{ route('shop.index') }}" class="btn btn-primary py-3 px-4">ادامه خرید</a></p>
                     </div>
-                    <p><a href="{{ route('checkout.index') }}" class="btn btn-primary py-3 px-4">پرداخت</a></p>
+                    <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                        <div class="cart-total mb-3">
+                            <h3>صورت حساب</h3>
+                            <p class="d-flex">
+                                <span>جمع کل</span>
+                                <span>{{ $cart->total }}تومان</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>هزینه ی تحویل</span>
+                                <span>0.00 تومان</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>تخفیف</span>
+                                <span>0 تومان</span>
+                            </p>
+                            <hr>
+                            <p class="d-flex total-price">
+                                <span>جمع کل</span>
+                                <span>{{ $cart->total }} تومان</span>
+                            </p>
+                        </div>
+                        <p><a href="{{ route('checkout.index') }}" class="btn btn-primary py-3 px-4">پرداخت</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 </x-app-layout>

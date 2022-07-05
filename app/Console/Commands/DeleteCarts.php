@@ -21,7 +21,7 @@ class DeleteCarts extends Command
      *
      * @var string
      */
-//    protected $description = 'Send a Daily email to all users with a word and its meaning';
+    //    protected $description = 'Send a Daily email to all users with a word and its meaning';
 
     /**
      * Create a new command instance.
@@ -40,8 +40,9 @@ class DeleteCarts extends Command
      */
     public function handle()
     {
-        Log::info("remove");
+        // Delete carts & cartItems of 7 days ago
+        $cart = Cart::query()->where('updated_at', '<', Carbon::now()->subDays(7))->delete();
 
-        Cart::query()->where('updated_at', '>', Carbon::now()->subDays(7))->delete();
+        $cart ? Log::info("remove") : Log::warning("not remove");
     }
 }
