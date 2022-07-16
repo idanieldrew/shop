@@ -7,10 +7,10 @@ this [Link](https://www.edureka.co/blog/how-to-run-a-php-program-in-xampp/) is u
 
 this [Link](https://www.geeksforgeeks.org/how-to-install-php-composer-on-windows/) is usefull
 
-## 3- Install laravel with composer
-
-[Laravel](https://laravel.com/docs/9.x#installation-via-composer)
-
+## 3- Install 
+```
+git clone https://github.com/idanieldrew/shop.git
+```
 ## 4- cp .env.example .env
 
 ```bash
