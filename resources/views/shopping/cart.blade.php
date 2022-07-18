@@ -50,7 +50,6 @@
             </div>
         </div>
     </div>
-    @dd(\Illuminate\Support\Facades\Session::has('empty'))
     @if (\Illuminate\Support\Facades\Session::has('empty'))
         <div class="alert alert-warning small" style="text-align: center">
             {{ \Illuminate\Support\Facades\Session::get('empty') }}
@@ -75,7 +74,6 @@
             @endforeach
         </div>
     @endif
-    @if (5 < 2)
         <section class="ftco-section ftco-cart">
             <div class="container">
                 <div class="row">
@@ -220,5 +218,4 @@
                 </div>
             </div>
         </section>
-    @endif
 </x-app-layout>
