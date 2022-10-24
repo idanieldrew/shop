@@ -22,13 +22,20 @@ DB_USERNAME=root
 DB_PASSWORD=Your password
 ```
 
-## 5- Database & fake data
+
+## 5- composer
+
+```bash
+composer install
+```
+
+## 6- Database & fake data
 
 ```bash
 php artisan migrate --seed
 ```
 
-## 6- Serve
+## 7- Serve
 
 ```bash
 php artisan serve
